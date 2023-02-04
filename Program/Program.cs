@@ -17,7 +17,28 @@ void ShowArray(string[] strArray)
     Console.WriteLine("Массив состоит из следующих элементов: ");
     for (int i = 0; i < strArray.Length; i++)
         Console.WriteLine($"{i+1}. {strArray[i]};");
+    Console.WriteLine();
+}
+string[] ChangeArray(string[] strArray)
+{
+    int x = 0;
+    for (int i = 0; i < strArray.Length; i++)
+        if (strArray[i].Length <= 3)
+        {
+            x++;
+        }
+    string[] changeArray = new string[x];
+    x = 0;
+    for (int i = 0; i < strArray.Length; i++)
+        if (strArray[i].Length <= 3)
+        {
+            changeArray[x] = strArray[i];
+            x++;
+        }    
+    return changeArray;
 }
 
 string[] strArray = FillStringArray();
 ShowArray(strArray);
+string[] changeArray = ChangeArray(strArray);
+ShowArray(changeArray);
