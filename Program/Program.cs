@@ -12,33 +12,35 @@
     }
     return stringArray;
 }
-void ShowArray(string[] strArray)
+void ShowArray(string[] strArray, string name)
 {
-    Console.WriteLine("Массив состоит из следующих элементов: ");
+    Console.WriteLine($"Массив{name} состоит из следующих элементов: ");
     for (int i = 0; i < strArray.Length; i++)
         Console.WriteLine($"{i+1}. {strArray[i]};");
     Console.WriteLine();
 }
 string[] ChangeArray(string[] strArray)
 {
-    int x = 0;
+    int size = 0;
     for (int i = 0; i < strArray.Length; i++)
         if (strArray[i].Length <= 3)
         {
-            x++;
+            size++;
         }
-    string[] changeArray = new string[x];
-    x = 0;
+    string[] changeArray = new string[size];
+    size = 0;
     for (int i = 0; i < strArray.Length; i++)
         if (strArray[i].Length <= 3)
         {
-            changeArray[x] = strArray[i];
-            x++;
+            changeArray[size] = strArray[i];
+            size++;
         }    
     return changeArray;
 }
 
 string[] strArray = FillStringArray();
-ShowArray(strArray);
+string name = ", введенный пользователем,";
+ShowArray(strArray, name);
 string[] changeArray = ChangeArray(strArray);
-ShowArray(changeArray);
+name = " после выборки";
+ShowArray(changeArray, name);
